@@ -17,9 +17,7 @@ public class PingPong extends Application{
         Group group = new Group();
         Rectangle rect = new Rectangle(50, 100, 10, 10);
         group.getChildren().add(rect);
-        Thread thread1 = new Thread(new RectangleMove(rect));
-        thread1.start();
-
+        new Thread(new RectangleMove(rect)).start();
         stage.setScene(new Scene(group, limitX, limitY));
         stage.setTitle(JOB4J);
         stage.setResizable(false);

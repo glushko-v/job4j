@@ -12,54 +12,26 @@ public class RectangleMove implements Runnable {
 
 
     public void run() {
-        int count = (int) (this.rect.getX());
-
 
         while (true) {
-
-
-            if (count != 0 && count != 290) {
-                while (count < 290) {
-                    count++;
-                    runRight();
+            if (this.rect.getX() == 0) {
+                for (int i = 0; i < 300; i++) {
+                    this.rect.setX(this.rect.getX() + 1);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if (count == 290) {
-                while (count > 0) {
-                    count--;
-                    runLeft();
-
-                }
-            }
-            if (count == 0) {
-                while (count < 290) {
-                    count++;
-                    runRight();
+            } else {
+                this.rect.setX(this.rect.getX() - 1);
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
-
-
-    }
-
-    void runLeft() {
-        this.rect.setX(this.rect.getX() - 1);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    void runRight() {
-
-        this.rect.setX(this.rect.getX() + 1);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
